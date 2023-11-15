@@ -8,7 +8,7 @@ function Header() {
             <nav>
                 <ul>
                     <li>강민철찾기</li>
-                    <li>튜티찾기</li>
+                    <li>al찾기</li>
                     <li>자유게시판</li>
                     <li>자유게시판1</li>
                     <li>자유게시판1</li>

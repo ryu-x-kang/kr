@@ -7,7 +7,7 @@ function Header() {
             <h1 style={{ color: '#9EE5E9' }}>TutorLink</h1>
             <nav>
                 <ul>
-                    <li>튜터찾기</li>
+                    <li>강민철찾기</li>
                     <li>튜티찾기</li>
                     <li>자유게시판</li>
                     <li>자유게시판1</li>

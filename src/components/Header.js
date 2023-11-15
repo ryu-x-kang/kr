@@ -19,6 +19,7 @@ function Header() {
                     <li>자유게시판56</li>
                     <li>자유게시판78</li>
                     <li>자유게시판9</li>
+                    <li>자유게시판112</li>
                 </ul>
             </nav>
             <div className="search-bar">

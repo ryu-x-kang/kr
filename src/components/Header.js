@@ -11,6 +11,7 @@ function Header() {
                     <li>튜티찾기</li>
                     <li>자유게시판</li>
                     <li>자유게시판1</li>
+                    <li>자유게시판1</li>
                 </ul>
             </nav>
             <div className="search-bar">

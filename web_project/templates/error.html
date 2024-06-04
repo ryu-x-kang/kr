@@ -1,0 +1,11 @@
+{% extends "layout.html" %} {% block body %}
+<div class="border border-3 border-dark rounded p-4">
+  <p class="text-center fw-bold fs-4">{{message}}</p>
+  <form action="/" method="get">
+    <div class="d-grid">
+      <button class="btn btn-dark text-white" type="submit">Go Back</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

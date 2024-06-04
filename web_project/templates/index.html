@@ -1,0 +1,103 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="border border-3 border-dark rounded p-4">
+  <p class="text-center fw-bold fs-1">MyPage</p>
+  <form action="/search" method="get">
+    <div class="input-group mb-3">
+      <label class="input-group-text bg-dark text-white" for="term">검색</label>
+      <input class="form-control" type="text" name="term" aria-label="Search Term" required id="term" />
+      <button class="btn btn-dark text-white" type="submit">Search</button>
+    </div>
+  </form>
+  <form action="/" method="get">
+    <div class="input-group mb-3">
+      <select class="form-select" name="pagenation">
+        {% for value in pagenation_list %}
+        <option value="{{value}}" {% if pagenation == value %} selected {% endif %}>{{value}}개씩 보기</option>
+        {% endfor %}
+      </select>
+      <button class="btn btn-dark text-white" type="submit">submit</button>
+    </div>
+  </form>
+  <table class="table table-sm">
+    <thead>
+      <tr class="table-dark text-center">
+        <th scope="col">#</th>
+        <th scope="col">제목</th>
+        <th scope="col">내용</th>
+        <th scope="col">작성일자</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% if cur_page == 1 %} {% for (id, title, cont, date) in announcement_list %}
+      <tr class="table-secondary text-center">
+        <td>📢</td>
+        <td>
+            <a href="/read-announcement?announcement_id={{id}}" class="text-reset text-decoration-none fw-bold">{{title}}</a>
+        </td>
+
+        {% if cont | length > 30 %}
+        <td>{{cont[:30] + " ..."}}</td>
+        {% else %}
+        <td>{{cont}}</td>
+        {% endif %}
+
+        <td>{{date}}</td>
+      </tr>
+      {% endfor %} {% endif %} {% for ( id, title, cont, date) in cur_diary_list %}
+      <tr class="text-center">
+        <td></td>
+        <td>
+            <a href="/read-post?diary_id={{id}}" class="text-reset text-decoration-none">{{title}}</a>
+        </td>
+
+        {% if cont | length > 30 %}
+        <td>{{cont[:30] + " ..."}}</td>
+        {% else %}
+        <td>{{cont}}</td>
+        {% endif %}
+
+        <td>{{date}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="row">
+  <div class="col-md-6"><nav>
+    <ul class="pagination">
+      {% if cur_page - 1 in pages %}
+      <li class="page-item">
+        <a class="page-link bg-dark text-white" href="/?page={{cur_page-1}}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% endif %} 
+      {% for page in pages %}
+      <a href="">
+      <li class="page-item"><a class="page-link bg-dark text-white" href="/?page={{page}}">
+        {% if page == cur_page %}
+        <strong>{{page}}</strong>
+        {% else %} {{page}} {% endif %}
+      </a></li>
+      {% endfor %}
+      {% if cur_page + 1 in pages %}
+      <li class="page-item">
+        <a class="page-link bg-dark text-white" href="/?page={{cur_page+1}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% endif %} 
+    </ul>
+  </nav></div>
+  <div class="col-md-6 text-end"><div class="btn-group">
+    <a href="/" class="btn btn-dark text-white">Post List</a>
+    <a href="/write-post" class="btn btn-dark text-white">Write Post</a>
+  </div></div>
+</div>
+  
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %} {% block body %}
+<div class="border border-3 border-dark rounded p-4">
+  <p class="text-center fw-bold fs-1 mb-3">Read Announcement</p>
+  <div class="input-group mb-3">
+    <label class="input-group-text bg-dark text-white" for="title">제목</label>
+    <input class="form-control" value="{{announcement['title']}}" required id="title" disabled readonly />
+  </div>
+  <div class="input-group mb-3">
+    <label class="input-group-text bg-dark text-white" for="date">시간</label>
+    <input class="form-control" value="{{announcement['date']}}" required id="date" disabled readonly />
+  </div>
+  <div class="input-group mb-3">
+    <label class="input-group-text bg-dark text-white" for="content">내용</label>
+    <textarea class="form-control" required id="content" rows="10" disabled readonly />{{announcement['cont']}}</textarea>
+  </div>
+
+  <div class="text-center">
+    <nav>
+      <ul class="pagination">
+        {% if prev_announcement_id != 0 %}
+        <li class="page-item">
+          <a
+            class="page-link bg-dark text-white"
+            href="/read-announcement?announcement_id={{prev_announcement_id}}"
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+        <li class="page-item"><a class="page-link bg-dark text-white" href="/">Post List</a></li>
+        {% if next_announcement_id != 0 %}
+        <li class="page-item">
+          <a
+            class="page-link bg-dark text-white"
+            href="/read-announcement?announcement_id={{next_announcement_id}}"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% endblock %}

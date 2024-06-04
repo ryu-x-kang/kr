@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="border border-3 border-dark rounded p-4">
+  <p class="text-center fw-bold fs-1">Member Login</p>
+  <form action="/login" method="post">
+    <div class="input-group mb-3">
+      <label class="input-group-text bg-dark text-white" for="username">Email</label>
+      <input class="form-control" type="text" name="username" aria-label="Username" required id="username" />
+      <label class="input-group-text bg-dark text-white">@</label>
+      <input class="form-control" type="text" name="domain" aria-label="Domain" required />
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text bg-dark text-white" for="password">Password</label>
+      <input class="form-control" type="password" name="password" aria-label="Password" required id="password" />
+    </div>
+    <div class="d-grid">
+      <button class="btn btn-dark text-white" type="submit">Login</button>
+    </div>
+  </form>
+</div>
+<p class="text-body-dark text-center mt-4">
+  <a href="/register" class="text-reset text-decoration-none fw-bold fs-5">회원가입하기</a><br />
+  <a href="/email-find" class="text-reset text-decoration-none fw-bold">아이디/비밀번호를 잊어버리셨나요?</a>
+</p>
+
+{% endblock %}

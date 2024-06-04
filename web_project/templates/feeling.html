@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="border border-3 border-dark rounded p-4 text-center">
+  <p class="text-center fw-bold fs-1">My Feelings</p>
+  <img src="data:image/png;base64,{{ plot_url }}" />
+  <form action="/feeling" method="post">
+    <div class="btn-group mb-3">
+      <button class="btn btn-outline-dark" type="submit" name="feeling" value="2">😄</button>
+      <button class="btn btn-outline-dark" type="submit" name="feeling" value="1">😀</button>
+      <button class="btn btn-outline-dark" type="submit" name="feeling" value="0">😐</button>
+      <button class="btn btn-outline-dark" type="submit" name="feeling" value="-1">😯</button>
+      <button class="btn btn-outline-dark" type="submit" name="feeling" value="-2">😟</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

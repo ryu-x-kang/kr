@@ -1,0 +1,47 @@
+{% extends "layout.html" %} {% block body %}
+<div class="border border-3 border-dark rounded p-4 mb-5">
+  <p class="text-center fw-bold fs-1 mb-3">Reset Password</p>
+  <p class="text-center fw-bold fs-4 mb-3">User Email<br />{{email}}</p>
+
+  <form action="/password-reset" method="post">
+    <div class="input-group mb-3">
+      <label class="input-group-text bg-dark text-white" for="password">Password</label>
+      <input class="form-control" type="password" name="password" aria-label="Password" required id="password" />
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text bg-dark text-white" for="password-confirm">Password Confirm</label>
+      <input
+        class="form-control"
+        type="password"
+        name="password-confirm"
+        aria-label="Password Confirm"
+        required
+        id="password-confirm"
+      />
+    </div>
+    <div class="d-grid">
+      <button class="btn btn-dark text-white" type="submit">Reset Password</button>
+    </div>
+  </form>
+</div>
+
+<div class="border border-3 border-dark rounded p-4">
+  <p class="text-center fw-bold fs-1 mb-3">정말 탈퇴하시겠어요?</p>
+  <p class="text-center fw-bold fs-4 mb-3">
+    탈퇴 버튼 선택 시 계정은 삭제되며 복구되지 않아요.<br />
+    정말 탈퇴 하시겠습니까?
+  </p>
+
+  <form action="/deregister" method="post">
+    <div class="input-group mb-3">
+      <label class="input-group-text bg-dark text-white" for="reason">탈퇴 사유</label>
+      <textarea class="form-control" name="reason" aria-label="With textarea" required id="reason"></textarea>
+    </div>
+    <div class="text-center">
+      <div class="d-grid">
+        <button class="btn btn-dark text-white" type="submit">Deregister</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
